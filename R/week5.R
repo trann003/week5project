@@ -23,5 +23,5 @@ Baggr_tbl <- Bdata_tbl %>% mutate(mean_q = rowMeans(select(.,starts_with("q")), 
   spread(., stimver, mean_q)
 Aaggr_tbl <- Aaggr_tbl %>% left_join(Anotes_tbl, by = "parnum")
 Baggr_tbl <- Baggr_tbl %>% left_join(Bnotes_tbl, by = "parnum")    
-bind_rows(Aaggr_tbl, Baggr_tbl, .id = "datasource") %>% filter(is.na(notes)) %>% count(datasource, sort = T)
+bind_rows(Aaggr_tbl, Baggr_tbl, .id = "datasource") %>% filter(is.na(notes)) %>% count(datasource)
 
